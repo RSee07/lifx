@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import logo from './logo.svg';
 import './App.css';
+import {
+  API_TOKEN,
+  TOGGLE_URL,
+  SET_STATE_URL,
+  BREATHE_URL
+} from './constants'
 
-const TOGGLE_URL = 'https://api.lifx.com/v1/lights/all/toggle'
-const SET_STATE_URL = 'https://api.lifx.com/v1/lights/all/state'
-const API_TOKEN = 'c3388f7729cb9c1364701c49434f6a4e860ec761874ec9d228042afb017a15ae'
+
 const headers = {
   Authorization: `Bearer ${API_TOKEN}`
 }
@@ -22,6 +26,18 @@ const turnLightRed = () => {
       color: '#FF0000',
       duration: 5,
       brightness: 0.1
+    },
+    {
+      headers
+    }
+  )
+}
+
+const breatheLight = () => {
+  axios.post(
+    BREATHE_URL,
+    {
+      color: '#FF0000'
     },
     {
       headers
@@ -51,6 +67,9 @@ class App extends Component {
           </button>
           <button onClick={turnLightRed}>
             Turn light red
+          </button>
+          <button onClick={breatheLight}>
+            Breathe
           </button>
         </header>
       </div>
