@@ -2,11 +2,11 @@ import React, { Fragment } from 'react';
 import axios from 'axios'
 import { createGlobalStyle } from 'styled-components'
 import {
-  API_TOKEN,
   GET_LIGHTS_URL,
   TOGGLE_URL,
   SET_STATE_URL,
-  BREATHE_URL
+  BREATHE_URL,
+  HEADERS
 } from './constants'
 
 const GlobalStyle = createGlobalStyle`
@@ -26,12 +26,8 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-const headers = {
-  Authorization: `Bearer ${API_TOKEN}`
-}
-
 const toggleLight = async () => {
-  await axios.post(TOGGLE_URL, null, { headers })
+  await axios.post(TOGGLE_URL, null, { headers: HEADERS })
 }
 
 const turnLightRed = async () => {
@@ -43,9 +39,7 @@ const turnLightRed = async () => {
       duration: 5,
       brightness: 0.1
     },
-    {
-      headers
-    }
+    { headers: HEADERS }
   )
 }
 
@@ -55,14 +49,12 @@ const breatheLight = async () => {
     {
       color: '#FF0000'
     },
-    {
-      headers
-    }
+    { headers: HEADERS }
   )
 }
 
 const getLightStatus = async () => {
-  const lightStatus = await axios.get(GET_LIGHTS_URL, { headers })
+  const lightStatus = await axios.get(GET_LIGHTS_URL, { headers: HEADERS })
   console.log(lightStatus)
 }
 
