@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     background-color: #202020;
+    font-family: 'Poppins', sans-serif;
   }
 `
 
