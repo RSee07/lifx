@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import {
   API_TOKEN,
+  GET_LIGHTS_URL,
   TOGGLE_URL,
   SET_STATE_URL,
   BREATHE_URL
@@ -14,11 +15,11 @@ const headers = {
   Authorization: `Bearer ${API_TOKEN}`
 }
 
-const toggleLight = () => {
-  axios.post(TOGGLE_URL, null, { headers })
+const toggleLight = async () => {
+  await axios.post(TOGGLE_URL, null, { headers })
 }
 
-const turnLightRed = () => {
+const turnLightRed = async () => {
   axios.put(
     SET_STATE_URL,
     {
@@ -33,7 +34,7 @@ const turnLightRed = () => {
   )
 }
 
-const breatheLight = () => {
+const breatheLight = async () => {
   axios.post(
     BREATHE_URL,
     {
@@ -43,6 +44,11 @@ const breatheLight = () => {
       headers
     }
   )
+}
+
+const getLightStatus = async () => {
+  const lightStatus = await axios.get(GET_LIGHTS_URL, { headers })
+  console.log(lightStatus)
 }
 
 class App extends Component {
@@ -70,6 +76,9 @@ class App extends Component {
           </button>
           <button onClick={breatheLight}>
             Breathe
+          </button>
+          <button onClick={getLightStatus}>
+            Get light status
           </button>
         </header>
       </div>
