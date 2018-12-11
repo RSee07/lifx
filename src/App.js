@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import axios from 'axios'
-import logo from './logo.svg';
-import './App.css';
+import { createGlobalStyle } from 'styled-components'
 import {
   API_TOKEN,
   GET_LIGHTS_URL,
@@ -10,6 +9,21 @@ import {
   BREATHE_URL
 } from './constants'
 
+const GlobalStyle = createGlobalStyle`
+  html {
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+    background-color: #202020;
+  }
+`
 
 const headers = {
   Authorization: `Bearer ${API_TOKEN}`
@@ -54,20 +68,9 @@ const getLightStatus = async () => {
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+      <Fragment>
+        <GlobalStyle />
+        <div className="App">
           <button onClick={toggleLight}>
             Toggle Light
           </button>
@@ -80,8 +83,8 @@ class App extends Component {
           <button onClick={getLightStatus}>
             Get light status
           </button>
-        </header>
-      </div>
+        </div>
+      </Fragment>
     );
   }
 }
