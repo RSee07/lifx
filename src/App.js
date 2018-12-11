@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import axios from 'axios'
 import { createGlobalStyle } from 'styled-components'
 import {
@@ -66,28 +66,24 @@ const getLightStatus = async () => {
   console.log(lightStatus)
 }
 
-class App extends Component {
-  render() {
-    return (
-      <Fragment>
-        <GlobalStyle />
-        <div className="App">
-          <button onClick={toggleLight}>
-            Toggle Light
-          </button>
-          <button onClick={turnLightRed}>
-            Turn light red
-          </button>
-          <button onClick={breatheLight}>
-            Breathe
-          </button>
-          <button onClick={getLightStatus}>
-            Get light status
-          </button>
-        </div>
-      </Fragment>
-    );
-  }
-}
+const App = () => (
+  <Fragment>
+    <GlobalStyle />
+    <div>
+      <button onClick={toggleLight}>
+        Toggle Light
+      </button>
+      <button onClick={turnLightRed}>
+        Turn light red
+      </button>
+      <button onClick={breatheLight}>
+        Breathe
+      </button>
+      <button onClick={getLightStatus}>
+        Get light status
+      </button>
+    </div>
+  </Fragment>
+)
 
-export default App;
+export default App
