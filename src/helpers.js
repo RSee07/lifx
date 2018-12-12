@@ -18,3 +18,9 @@ export const media = Object.keys(breakpoints).reduce((media, breakpoint) => {
   media[breakpoint] = `@media (min-width: ${breakpoints[breakpoint]})`
   return media
 }, {})
+
+export const colors = {
+  black: '#000000',
+  darkGrey: '#202020',
+  lightGrey: '#323232'
+}
