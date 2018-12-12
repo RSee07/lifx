@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import axios from 'axios'
-import { createGlobalStyle } from 'styled-components'
+import styled,{ createGlobalStyle } from 'styled-components'
 import {
   GET_LIGHTS_URL,
   TOGGLE_URL,
@@ -8,6 +8,7 @@ import {
   BREATHE_URL,
   HEADERS
 } from './constants'
+import { media } from './helpers'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -26,6 +27,24 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+const CommandContainer = styled.div`
+  margin: 0 10px;
+  display: grid;
+  grid-template-columns: auto; /* Specify one column */
+  grid-row-gap: 15px;
+
+  ${media.tablet} {
+    grid-template-columns: auto auto; /* Specify two columns */
+  }
+
+  ${media.desktop} {
+    margin: 0 auto;
+    width: 400px;
+    grid-template-columns: auto auto auto; /* Specify three columns */
+    grid-column-gap: 20px;
+
+  }
+`
 const toggleLight = async () => {
   await axios.post(TOGGLE_URL, null, { headers: HEADERS })
 }
@@ -61,7 +80,7 @@ const getLightStatus = async () => {
 const App = () => (
   <Fragment>
     <GlobalStyle />
-    <div>
+    <CommandContainer>
       <button onClick={toggleLight}>
         Toggle Light
       </button>
@@ -74,7 +93,7 @@ const App = () => (
       <button onClick={getLightStatus}>
         Get light status
       </button>
-    </div>
+    </CommandContainer>
   </Fragment>
 )
 
