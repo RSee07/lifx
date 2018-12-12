@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
 `
 
 const CommandContainer = styled.div`
-  margin: 0 10px;
+  margin: 15px;
   display: grid;
   grid-template-columns: auto; /* Specify one column */
   grid-row-gap: 15px;
@@ -45,6 +45,7 @@ const CommandContainer = styled.div`
 
   }
 `
+
 const toggleLight = async () => {
   await axios.post(TOGGLE_URL, null, { headers: HEADERS })
 }
