@@ -8,7 +8,8 @@ import {
   BREATHE_URL,
   HEADERS
 } from './constants'
-import { media } from './helpers'
+import { media, colors } from './helpers'
+import CommandCard from './components/CommandCard'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -22,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    background-color: #202020;
+    background-color: ${colors.darkGrey};
     font-family: 'Poppins', sans-serif;
   }
 `
@@ -35,14 +36,13 @@ const CommandContainer = styled.div`
 
   ${media.tablet} {
     grid-template-columns: auto auto; /* Specify two columns */
+    grid-column-gap: 20px;
   }
 
   ${media.desktop} {
     margin: 0 auto;
     width: 400px;
     grid-template-columns: auto auto auto; /* Specify three columns */
-    grid-column-gap: 20px;
-
   }
 `
 
@@ -80,9 +80,15 @@ const getLightStatus = async () => {
 
 const App = () => (
   <Fragment>
-    <GlobalStyle />
+    <GlobalStyle /> {/* Handles global styles */}
     <CommandContainer>
-      <button onClick={toggleLight}>
+      <CommandCard />
+      <CommandCard />
+      <CommandCard />
+      <CommandCard />
+      <CommandCard />
+      <CommandCard />
+      {/* <button onClick={toggleLight}>
         Toggle Light
       </button>
       <button onClick={turnLightRed}>
@@ -93,7 +99,7 @@ const App = () => (
       </button>
       <button onClick={getLightStatus}>
         Get light status
-      </button>
+      </button> */}
     </CommandContainer>
   </Fragment>
 )
