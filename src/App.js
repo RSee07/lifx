@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios'
 import styled,{ createGlobalStyle } from 'styled-components'
 import {
@@ -73,16 +73,26 @@ const breatheLight = async () => {
   )
 }
 
-const getLightStatus = async () => {
-  const lightStatus = await axios.get(GET_LIGHTS_URL, { headers: HEADERS })
-  console.log(lightStatus)
-}
-
 const App = () => {
-  // When component mounts and for every render after, run useEffect
+  // Define the isLightOn state
+  const [isLightOn, setIsLightOn] = useState(false)
+
+  // Get the status of the light and set state of isLightOn
+  const getLightStatus = async () => {
+    const lightStatus = await axios.get(GET_LIGHTS_URL, { headers: HEADERS })
+    const powerStatus = (lightStatus.data[0].power === 'on') ? true : false
+
+    setIsLightOn(powerStatus) 
+  }
+
+  /*
+   * When component mounts and for every render after, run useEffect
+   * Skip an effect if the effect returns nothing
+   * Continuously returns a promise if skipping effect array not added
+   */
   useEffect(() => {
     getLightStatus()
-  })
+  }, [])
 
   return (
     <Fragment>
