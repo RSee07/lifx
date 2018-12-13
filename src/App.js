@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import axios from 'axios'
 import styled,{ createGlobalStyle } from 'styled-components'
 import {
@@ -78,30 +78,37 @@ const getLightStatus = async () => {
   console.log(lightStatus)
 }
 
-const App = () => (
-  <Fragment>
-    <GlobalStyle /> {/* Handles global styles */}
-    <CommandContainer>
-      <CommandCard />
-      <CommandCard />
-      <CommandCard />
-      <CommandCard />
-      <CommandCard />
-      <CommandCard />
-      {/* <button onClick={toggleLight}>
-        Toggle Light
-      </button>
-      <button onClick={turnLightRed}>
-        Turn light red
-      </button>
-      <button onClick={breatheLight}>
-        Breathe
-      </button>
-      <button onClick={getLightStatus}>
-        Get light status
-      </button> */}
-    </CommandContainer>
-  </Fragment>
-)
+const App = () => {
+  // When component mounts and for every render after, run useEffect
+  useEffect(() => {
+    getLightStatus()
+  })
+
+  return (
+    <Fragment>
+      <GlobalStyle /> {/* Handles global styles */}
+      <CommandContainer>
+        <CommandCard />
+        <CommandCard />
+        <CommandCard />
+        <CommandCard />
+        <CommandCard />
+        <CommandCard />
+        {/* <button onClick={toggleLight}>
+          Toggle Light
+        </button>
+        <button onClick={turnLightRed}>
+          Turn light red
+        </button>
+        <button onClick={breatheLight}>
+          Breathe
+        </button>
+        <button onClick={getLightStatus}>
+          Get light status
+        </button> */}
+      </CommandContainer>
+    </Fragment>
+  )
+}
 
 export default App
