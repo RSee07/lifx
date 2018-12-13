@@ -92,7 +92,7 @@ const App = () => {
    */
   useEffect(() => {
     getLightStatus()
-  }, [])
+  }, []) // Empty array means effect will only run once
 
   return (
     <Fragment>
