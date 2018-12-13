@@ -76,6 +76,7 @@ const breatheLight = async () => {
 const App = () => {
   // Define the isLightOn state
   const [isLightOn, setIsLightOn] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   // Get the status of the light and set state of isLightOn
   const getLightStatus = async () => {
@@ -83,13 +84,14 @@ const App = () => {
     const powerStatus = (lightStatus.data[0].power === 'on') ? true : false
 
     setIsLightOn(powerStatus) 
+    setIsLoading(false)
   }
-
+  
   /*
-   * When component mounts and for every render after, run useEffect
-   * Skip an effect if the effect returns nothing
-   * Continuously returns a promise if skipping effect array not added
-   */
+  * When component mounts and for every render after, run useEffect
+  * Skip an effect if the effect returns nothing
+  * Continuously returns a promise if skipping effect array not added
+  */
   useEffect(() => {
     getLightStatus()
   }, []) // Empty array means effect will only run once
