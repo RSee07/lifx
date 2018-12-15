@@ -1,4 +1,5 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Grommet, Button } from 'grommet'
 import axios from 'axios'
 import styled,{ createGlobalStyle } from 'styled-components'
 import {
@@ -106,15 +107,16 @@ const App = () => {
   }, []) // Empty array means effect will only run once
 
   return (
-    <Fragment>
+    <Grommet plain>
       <GlobalStyle /> {/* Handles global styles */}
       <CommandContainer>
-        <CommandCard />
-        <CommandCard />
-        <CommandCard />
-        <CommandCard />
-        <CommandCard />
-        <CommandCard />
+        <CommandCard>
+          <Button
+            primary
+            label='Toggle'
+            onClick={toggleLight}
+          />
+        </CommandCard>
         {/* <button onClick={toggleLight}>
           Toggle Light
         </button>
@@ -127,8 +129,9 @@ const App = () => {
         <button onClick={getLightStatus}>
           Get light status
         </button> */}
+        
       </CommandContainer>
-    </Fragment>
+    </Grommet>
   )
 }
 

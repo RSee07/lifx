@@ -4,15 +4,20 @@ import { colors } from '../helpers'
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 100px;
+  padding: 25px 0;
   background-color: ${colors.lightGrey};
   border-radius: 5px;
   box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 
-const CommandCard = () => {
+const CommandCard = (props) => {
   return (
-    <Wrapper />
+    <Wrapper>
+      {props.children}
+    </Wrapper>
   )
 }
 
