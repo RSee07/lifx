@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Grommet, Button } from 'grommet'
+import { Grommet, Button, Select } from 'grommet'
 import axios from 'axios'
 import styled,{ createGlobalStyle } from 'styled-components'
 import {
@@ -51,14 +51,13 @@ const toggleLight = async () => {
   await axios.post(TOGGLE_URL, null, { headers: HEADERS })
 }
 
-const turnLightRed = async () => {
+const turnLightOffTimed = async (time) => {
   axios.put(
     SET_STATE_URL,
     {
-      power: 'on',
-      color: '#FF0000',
-      duration: 5,
-      brightness: 0.1
+      power: 'off',
+      duration: time,
+      brightness: 0
     },
     { headers: HEADERS }
   )
@@ -74,10 +73,20 @@ const breatheLight = async () => {
   )
 }
 
+const times = {
+  '5 minutes': 300,
+  '10 minutes': 600,
+  '15 minutes': 900,
+  '20 minutes': 1200,
+  '25 minutes': 1500,
+  '30 minutes': 1800,
+}
+
 const App = () => {
   // Define the lightStatus object state
   const [lightStatus, setLightStatus] = useState({})
   const [isLoading, setIsLoading] = useState(true)
+  const [value, setValue] = useState('')
 
   // Get the status of the light and set state of lightStatus
   const getLightStatus = async () => {
@@ -115,6 +124,19 @@ const App = () => {
             primary
             label='Toggle'
             onClick={toggleLight}
+            options={times}
+          />
+        </CommandCard>
+        <CommandCard>
+          <Select
+            id='lightSelect'
+            name='lightSelect'
+            placeholder='Timer'
+            value={value}
+            options={Object.keys(times)}
+            onChange={({ option }) => {
+              turnLightOffTimed(times[option])
+            }}
           />
         </CommandCard>
         {/* <button onClick={toggleLight}>
