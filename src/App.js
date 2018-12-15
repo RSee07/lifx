@@ -74,16 +74,25 @@ const breatheLight = async () => {
 }
 
 const App = () => {
-  // Define the isLightOn state
-  const [isLightOn, setIsLightOn] = useState(false)
+  // Define the lightStatus object state
+  const [lightStatus, setLightStatus] = useState({})
   const [isLoading, setIsLoading] = useState(true)
 
-  // Get the status of the light and set state of isLightOn
+  // Get the status of the light and set state of lightStatus
   const getLightStatus = async () => {
-    const lightStatus = await axios.get(GET_LIGHTS_URL, { headers: HEADERS })
-    const powerStatus = (lightStatus.data[0].power === 'on') ? true : false
+    const lightMessage = await axios.get(GET_LIGHTS_URL, { headers: HEADERS })
+    const { power, brightness, color: { hue, saturation, kelvin} } = lightMessage.data[0]
 
-    setIsLightOn(powerStatus) 
+    setLightStatus(
+      {
+        power: power === 'on' ? true : false,
+        brightness,
+        hue,
+        saturation,
+        kelvin
+      }
+    )
+
     setIsLoading(false)
   }
   
