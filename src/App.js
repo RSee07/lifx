@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Grommet } from 'grommet'
+
+// Libs
 import styled, { createGlobalStyle } from 'styled-components'
-import { media, colors } from './helpers'
+import { Grommet } from 'grommet'
+
+// Components
 import ToggleCard from './components/cards/ToggleCard'
 import TimerCard from './components/cards/TimerCard'
+
+// Helpers
 import { getLightStatus } from './api'
+import { media, colors } from './helpers'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -78,19 +84,6 @@ const App = () => {
       <CommandContainer>
         <ToggleCard />
         <TimerCard />
-        {/* <button onClick={toggleLight}>
-          Toggle Light
-        </button>
-        <button onClick={turnLightRed}>
-          Turn light red
-        </button>
-        <button onClick={breatheLight}>
-          Breathe
-        </button>
-        <button onClick={getLightStatus}>
-          Get light status
-        </button> */}
-        
       </CommandContainer>
     </Grommet>
   )
