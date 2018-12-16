@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Grommet, Button, Select } from 'grommet'
 import axios from 'axios'
-import styled,{ createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import {
   GET_LIGHTS_URL,
   TOGGLE_URL,
@@ -11,6 +11,7 @@ import {
 } from './constants'
 import { media, colors } from './helpers'
 import CommandCard from './components/CommandCard'
+import ToggleCard from './components/cards/ToggleCard'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -46,10 +47,6 @@ const CommandContainer = styled.div`
     grid-template-columns: auto auto auto; /* Specify three columns */
   }
 `
-
-const toggleLight = async () => {
-  await axios.post(TOGGLE_URL, null, { headers: HEADERS })
-}
 
 const turnLightOffTimed = async (time) => {
   axios.put(
@@ -119,14 +116,7 @@ const App = () => {
     <Grommet plain>
       <GlobalStyle /> {/* Handles global styles */}
       <CommandContainer>
-        <CommandCard>
-          <Button
-            primary
-            label='Toggle'
-            onClick={toggleLight}
-            options={times}
-          />
-        </CommandCard>
+        <ToggleCard />
         <CommandCard>
           <Select
             id='lightSelect'
