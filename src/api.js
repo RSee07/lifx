@@ -22,3 +22,13 @@ export const turnLightOffTimed = async (time) => {
     { headers: HEADERS }
   )
 }
+
+export const breatheLight = async () => {
+  axios.post(
+    BREATHE_URL,
+    {
+      color: '#FF0000'
+    },
+    { headers: HEADERS }
+  )
+}

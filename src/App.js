@@ -4,9 +4,6 @@ import axios from 'axios'
 import styled, { createGlobalStyle } from 'styled-components'
 import {
   GET_LIGHTS_URL,
-  TOGGLE_URL,
-  SET_STATE_URL,
-  BREATHE_URL,
   HEADERS
 } from './constants'
 import { media, colors } from './helpers'
@@ -47,16 +44,6 @@ const CommandContainer = styled.div`
     grid-template-columns: auto auto auto; /* Specify three columns */
   }
 `
-
-const breatheLight = async () => {
-  axios.post(
-    BREATHE_URL,
-    {
-      color: '#FF0000'
-    },
-    { headers: HEADERS }
-  )
-}
 
 const App = () => {
   // Define the lightStatus object state
