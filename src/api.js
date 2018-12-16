@@ -10,3 +10,15 @@ import {
 export const toggleLight = async () => {
   await axios.post(TOGGLE_URL, null, { headers: HEADERS })
 }
+
+export const turnLightOffTimed = async (time) => {
+  axios.put(
+    SET_STATE_URL,
+    {
+      power: 'off',
+      duration: time,
+      brightness: 0
+    },
+    { headers: HEADERS }
+  )
+}

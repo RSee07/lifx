@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Grommet, Button, Select } from 'grommet'
+import { Grommet } from 'grommet'
 import axios from 'axios'
 import styled, { createGlobalStyle } from 'styled-components'
 import {
@@ -10,8 +10,8 @@ import {
   HEADERS
 } from './constants'
 import { media, colors } from './helpers'
-import CommandCard from './components/CommandCard'
 import ToggleCard from './components/cards/ToggleCard'
+import TimerCard from './components/cards/TimerCard'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -48,18 +48,6 @@ const CommandContainer = styled.div`
   }
 `
 
-const turnLightOffTimed = async (time) => {
-  axios.put(
-    SET_STATE_URL,
-    {
-      power: 'off',
-      duration: time,
-      brightness: 0
-    },
-    { headers: HEADERS }
-  )
-}
-
 const breatheLight = async () => {
   axios.post(
     BREATHE_URL,
@@ -70,20 +58,10 @@ const breatheLight = async () => {
   )
 }
 
-const times = {
-  '5 minutes': 300,
-  '10 minutes': 600,
-  '15 minutes': 900,
-  '20 minutes': 1200,
-  '25 minutes': 1500,
-  '30 minutes': 1800,
-}
-
 const App = () => {
   // Define the lightStatus object state
   const [lightStatus, setLightStatus] = useState({})
   const [isLoading, setIsLoading] = useState(true)
-  const [value, setValue] = useState('')
 
   // Get the status of the light and set state of lightStatus
   const getLightStatus = async () => {
@@ -117,18 +95,7 @@ const App = () => {
       <GlobalStyle /> {/* Handles global styles */}
       <CommandContainer>
         <ToggleCard />
-        <CommandCard>
-          <Select
-            id='lightSelect'
-            name='lightSelect'
-            placeholder='Timer'
-            value={value}
-            options={Object.keys(times)}
-            onChange={({ option }) => {
-              turnLightOffTimed(times[option])
-            }}
-          />
-        </CommandCard>
+        <TimerCard />
         {/* <button onClick={toggleLight}>
           Toggle Light
         </button>
