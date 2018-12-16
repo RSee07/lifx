@@ -7,6 +7,19 @@ import {
   HEADERS
 } from './constants'
 
+export const getLightStatus = async () => {
+  const lightMessage = await axios.get(GET_LIGHTS_URL, { headers: HEADERS })
+  const { power, brightness, color: { hue, saturation, kelvin} } = lightMessage.data[0]
+
+  return {
+    power: power === 'on' ? true : false,
+    brightness,
+    hue,
+    saturation,
+    kelvin
+  }
+}
+
 export const toggleLight = async () => {
   await axios.post(TOGGLE_URL, null, { headers: HEADERS })
 }

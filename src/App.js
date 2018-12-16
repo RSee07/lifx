@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Grommet } from 'grommet'
-import axios from 'axios'
 import styled, { createGlobalStyle } from 'styled-components'
-import {
-  GET_LIGHTS_URL,
-  HEADERS
-} from './constants'
 import { media, colors } from './helpers'
 import ToggleCard from './components/cards/ToggleCard'
 import TimerCard from './components/cards/TimerCard'
+import { getLightStatus } from './api'
 
 const GlobalStyle = createGlobalStyle`
   html {
@@ -51,13 +47,12 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   // Get the status of the light and set state of lightStatus
-  const getLightStatus = async () => {
-    const lightMessage = await axios.get(GET_LIGHTS_URL, { headers: HEADERS })
-    const { power, brightness, color: { hue, saturation, kelvin} } = lightMessage.data[0]
+  const setLightStatus = async () => {
+    const { power, brightness, hue, saturation, kelvin } = await getLightStatus()
 
     setLightStatus(
       {
-        power: power === 'on' ? true : false,
+        power,
         brightness,
         hue,
         saturation,
@@ -74,7 +69,7 @@ const App = () => {
   * Continuously returns a promise if skipping effect array not added
   */
   useEffect(() => {
-    getLightStatus()
+    setLightStatus()
   }, []) // Empty array means effect will only run once
 
   return (
