@@ -12,6 +12,7 @@ import TimerCard from './components/cards/TimerCard'
 import { getLightStatus } from './api'
 import { media, colors } from './helpers'
 
+// Styled components global styling
 const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
@@ -52,8 +53,8 @@ const App = () => {
   const [lightStatus, setLightStatus] = useState({})
   const [isLoading, setIsLoading] = useState(true)
 
-  // Get the status of the light and set state of lightStatus
   const setLightStatus = async () => {
+    // Set the current light status
     const { power, brightness, hue, saturation, kelvin } = await getLightStatus()
 
     setLightStatus(
@@ -66,6 +67,7 @@ const App = () => {
       }
     )
 
+    // After the light status has been set, set loading to false
     setIsLoading(false)
   }
   

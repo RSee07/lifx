@@ -3,6 +3,7 @@ import { Select } from 'grommet'
 import CommandCard from '../CommandCard'
 import { turnLightOffTimed } from '../../api'
 
+// Time is in seconds
 const times = {
   '5 minutes': 300,
   '10 minutes': 600,
