@@ -30,6 +30,16 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+// Grommet theme
+const theme = {
+  select: {
+    background: colors.grommetPurple,
+    icons: {
+      color: colors.white
+    }
+  }
+}
+
 const CommandContainer = styled.div`
   margin: 15px;
   display: grid;
@@ -53,7 +63,7 @@ const App = () => {
   const [lightStatus, setLightStatus] = useState({})
   const [isLoading, setIsLoading] = useState(true)
 
-  const setLightStatus = async () => {
+  const getInitialLightStatus = async () => {
     // Set the current light status
     const { power, brightness, hue, saturation, kelvin } = await getLightStatus()
 
@@ -77,11 +87,12 @@ const App = () => {
   * Continuously returns a promise if skipping effect array not added
   */
   useEffect(() => {
-    setLightStatus()
+    getInitialLightStatus()
   }, []) // Empty array means effect will only run once
 
   return (
-    <Grommet plain>
+    <Grommet theme={theme}
+    >
       <GlobalStyle /> {/* Handles global styles */}
       <CommandContainer>
         <ToggleCard />
