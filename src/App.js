@@ -7,6 +7,7 @@ import { Grommet } from 'grommet'
 // Components
 import ToggleCard from './components/cards/ToggleCard'
 import TimerCard from './components/cards/TimerCard'
+import Footer from './components/Footer'
 
 // Helpers
 import { getLightStatus } from './api'
@@ -91,13 +92,13 @@ const App = () => {
   }, []) // Empty array means effect will only run once
 
   return (
-    <Grommet theme={theme}
-    >
+    <Grommet theme={theme} >
       <GlobalStyle /> {/* Handles global styles */}
       <CommandContainer>
         <ToggleCard />
         <TimerCard />
       </CommandContainer>
+      <Footer isLoading={isLoading} />
     </Grommet>
   )
 }
