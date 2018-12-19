@@ -98,7 +98,7 @@ const App = () => {
         <ToggleCard />
         <TimerCard />
       </CommandContainer>
-      <Footer isLoading={isLoading} />
+      <Footer isLoading={isLoading} {...lightStatus} />
     </Grommet>
   )
 }
