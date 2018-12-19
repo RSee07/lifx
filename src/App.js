@@ -64,7 +64,7 @@ const App = () => {
   const [lightStatus, setLightStatus] = useState({})
   const [isLoading, setIsLoading] = useState(true)
 
-  const getInitialLightStatus = async () => {
+  const updateLightStatus = async () => {
     // Set the current light status
     const { power, brightness, hue, saturation, kelvin } = await getLightStatus()
 
@@ -81,21 +81,26 @@ const App = () => {
     // After the light status has been set, set loading to false
     setIsLoading(false)
   }
+
   
+  const commandResult = (result) => {
+    if (result === 'ok') updateLightStatus()
+  }
+
   /*
   * When component mounts and for every render after, run useEffect
   * Skip an effect if the effect returns nothing
   * Continuously returns a promise if skipping effect array not added
   */
   useEffect(() => {
-    getInitialLightStatus()
+    updateLightStatus()
   }, []) // Empty array means effect will only run once
 
   return (
     <Grommet theme={theme} >
       <GlobalStyle /> {/* Handles global styles */}
       <CommandContainer>
-        <ToggleCard />
+        <ToggleCard commandResult={commandResult} />
         <TimerCard />
       </CommandContainer>
       <Footer isLoading={isLoading} {...lightStatus} />

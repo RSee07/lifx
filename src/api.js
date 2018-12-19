@@ -21,7 +21,9 @@ export const getLightStatus = async () => {
 }
 
 export const toggleLight = async () => {
-  await axios.post(TOGGLE_URL, null, { headers: HEADERS })
+  const response = await axios.post(TOGGLE_URL, null, { headers: HEADERS })
+
+  return response.data.results[0].status
 }
 
 export const turnLightOffTimed = async (time) => {
