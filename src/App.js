@@ -7,7 +7,7 @@ import { Grommet } from 'grommet'
 // Components
 import ToggleCard from './components/cards/ToggleCard'
 import TimerCard from './components/cards/TimerCard'
-import Footer from './components/Footer'
+import Status from './components/Status'
 
 // Helpers
 import { getLightStatus } from './api'
@@ -103,7 +103,7 @@ const App = () => {
         <ToggleCard commandResult={commandResult} />
         <TimerCard />
       </CommandContainer>
-      <Footer isLoading={isLoading} {...lightStatus} />
+      <Status isLoading={isLoading} {...lightStatus} />
     </Grommet>
   )
 }
