@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import { colors } from '../helpers'
+import { ReactComponent as Loader } from '../media/grid.svg'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -12,17 +13,36 @@ const Wrapper = styled.div`
   color: ${colors.white};
 `
 
+const LoaderWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const StyledLoader = styled(Loader)`
+  width: 50px;
+  height: 50px;
+`
+
 const Footer = ({ isLoading, power, brightness, hue, saturation, kelvin }) => (
   <Wrapper>
-    <div>Power: {power ? 'On' : 'Off'}</div>
-    <div>Brightness: {brightness}</div>
-    <div>Hue: {hue}</div>
-    <div>Saturation: {saturation}</div>
-    <div>Kelvin: {kelvin}</div>
     {
       isLoading
-        ? <div>Loading</div>
-        : <div>Wow</div>
+        ? (
+          <LoaderWrapper>
+            <StyledLoader/>
+          </LoaderWrapper>
+        )
+        : (
+          <Fragment>
+            <div>Power: {power ? 'On' : 'Off'}</div>
+            <div>Brightness: {brightness}</div>
+            <div>Hue: {hue}</div>
+            <div>Saturation: {saturation}</div>
+            <div>Kelvin: {kelvin}</div>
+          </Fragment>
+        )
     }
   </Wrapper>
 )
