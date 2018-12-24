@@ -59,6 +59,10 @@ const CommandContainer = styled.div`
   }
 `
 
+const WhiteContainer = styled.div`
+  color: white;
+`
+
 const App = () => {
   // Define the lightStatus object state
   const [lightStatus, setLightStatus] = useState({})
@@ -102,8 +106,19 @@ const App = () => {
       <CommandContainer>
         <ToggleCard commandResult={commandResult} />
         <TimerCard />
+        <WhiteContainer>
+          <div>Power: {lightStatus.power ? 'On' : 'Off'}</div>
+          <div>Brightness: {lightStatus.brightness}</div>
+          <div>Hue: {lightStatus.hue}</div>
+          <div>Saturation: {lightStatus.saturation}</div>
+          <div>Kelvin: {lightStatus.kelvin}</div>
+        </WhiteContainer>
       </CommandContainer>
-      <Status isLoading={isLoading} {...lightStatus} />
+      <Status
+        isLoading={isLoading}
+        {...lightStatus}
+        commandResult={commandResult}
+      />
     </Grommet>
   )
 }

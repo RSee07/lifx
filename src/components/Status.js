@@ -1,5 +1,8 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
+import { Button } from 'grommet'
+import { Info } from 'grommet-icons'
+import { toggleLight } from '../api'
 import { colors } from '../helpers'
 import { ReactComponent as Loader } from '../media/grid.svg'
 
@@ -10,7 +13,6 @@ const Wrapper = styled.div`
   position: fixed;
   bottom: 0;
   box-shadow: 0px -6px 10px 0px rgba(0,0,0,0.75);
-  color: ${colors.white};
 `
 
 const LoaderWrapper = styled.div`
@@ -25,26 +27,45 @@ const StyledLoader = styled(Loader)`
   height: 50px;
 `
 
-const Footer = ({ isLoading, power, brightness, hue, saturation, kelvin }) => (
-  <Wrapper>
-    {
-      isLoading
-        ? (
-          <LoaderWrapper>
-            <StyledLoader/>
-          </LoaderWrapper>
-        )
-        : (
-          <Fragment>
-            <div>Power: {power ? 'On' : 'Off'}</div>
-            <div>Brightness: {brightness}</div>
-            <div>Hue: {hue}</div>
-            <div>Saturation: {saturation}</div>
-            <div>Kelvin: {kelvin}</div>
-          </Fragment>
-        )
-    }
-  </Wrapper>
-)
+const PowerButton = styled(Button)`
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+
+  svg {
+    width: 35px;
+    height: 35px;
+  }
+`
+
+const Footer = ({ isLoading, power, brightness, hue, saturation, kelvin, commandResult }) => {
+  const handleClick = async () => {
+    const result = await toggleLight()
+    commandResult(result)
+  }
+
+  return (
+    <Wrapper>
+      {
+        isLoading
+          ? (
+            <LoaderWrapper>
+              <StyledLoader/>
+            </LoaderWrapper>
+          )
+          : (
+            <Fragment>
+              <PowerButton
+                icon={<Info />}
+                primary
+                color={power ? '#ffffff' : colors.darkGrey }
+                onClick={handleClick}
+              />
+            </Fragment>
+          )
+      }
+    </Wrapper>
+  )
+}
 
 export default Footer
