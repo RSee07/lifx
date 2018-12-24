@@ -7,6 +7,7 @@ import { Grommet } from 'grommet'
 // Components
 import ToggleCard from './components/cards/ToggleCard'
 import TimerCard from './components/cards/TimerCard'
+import BrightnessCard from './components/cards/BrightnessCard'
 import Status from './components/Status'
 
 // Helpers
@@ -110,9 +111,10 @@ const App = () => {
       <CommandContainer>
         <ToggleCard commandResult={commandResult} toggleLoading={toggleLoading} />
         <TimerCard />
+        <BrightnessCard brightness={lightStatus.brightness} />
         <WhiteContainer>
           <div>Power: {lightStatus.power ? 'On' : 'Off'}</div>
-          <div>Brightness: {lightStatus.brightness}</div>
+          <div>Brightness: {lightStatus.brightness}%</div>
           <div>Hue: {lightStatus.hue}</div>
           <div>Saturation: {lightStatus.saturation}</div>
           <div>Kelvin: {lightStatus.kelvin}</div>
