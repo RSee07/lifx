@@ -85,10 +85,14 @@ const App = () => {
     // After the light status has been set, set loading to false
     setIsLoading(false)
   }
-
+  
   
   const commandResult = (result) => {
     if (result === 'ok') updateLightStatus()
+  }
+  
+  const toggleLoading = () => {
+    setIsLoading(true)
   }
 
   /*
@@ -104,7 +108,7 @@ const App = () => {
     <Grommet theme={theme} >
       <GlobalStyle /> {/* Handles global styles */}
       <CommandContainer>
-        <ToggleCard commandResult={commandResult} />
+        <ToggleCard commandResult={commandResult} toggleLoading={toggleLoading} />
         <TimerCard />
         <WhiteContainer>
           <div>Power: {lightStatus.power ? 'On' : 'Off'}</div>
@@ -118,6 +122,7 @@ const App = () => {
         isLoading={isLoading}
         {...lightStatus}
         commandResult={commandResult}
+        toggleLoading={toggleLoading}
       />
     </Grommet>
   )

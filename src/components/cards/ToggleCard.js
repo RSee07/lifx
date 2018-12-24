@@ -3,8 +3,9 @@ import { Button } from 'grommet'
 import CommandCard from '../CommandCard'
 import { toggleLight } from '../../api'
 
-const ToggleCard = ({ commandResult }) => {
+const ToggleCard = ({ commandResult, toggleLoading }) => {
   const handleClick = async () => {
+    toggleLoading()
     const result = await toggleLight()
     commandResult(result)
   }
