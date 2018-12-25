@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 // Libs
-import styled, { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle, keyframes } from 'styled-components'
 import { Grommet } from 'grommet'
 
 // Components
@@ -64,10 +64,29 @@ const WhiteContainer = styled.div`
   color: white;
 `
 
+const rotate = keyframes`
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+`
+
+const Rotate = styled.div`
+  animation: ${rotate} 3s linear forwards;
+`
+
 const App = () => {
   // Define the lightStatus object state
   const [lightStatus, setLightStatus] = useState({})
   const [isLoading, setIsLoading] = useState(true)
+
+  // Temporary
+  const [message, setMessage] = useState('')
 
   const updateLightStatus = async () => {
     // Set the current light status
@@ -90,7 +109,7 @@ const App = () => {
   
   const commandResult = (result) => {
     if (result === 'ok') updateLightStatus()
-    alert('ok')
+    setMessage('Command Successful')
   }
   
   const toggleLoading = () => {
@@ -119,6 +138,7 @@ const App = () => {
           <div>Hue: {lightStatus.hue}</div>
           <div>Saturation: {lightStatus.saturation}</div>
           <div>Kelvin: {lightStatus.kelvin}</div>
+          { !isLoading && message && <Rotate>{message}</Rotate> }
         </WhiteContainer>
       </CommandContainer>
       <Status
