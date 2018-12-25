@@ -52,11 +52,20 @@ const PowerButton = styled(Button)`
   }
 `
 
-const Brightness = styled.div`
+const BrightnessWrapper = styled.div`
   padding-top: 10px;
 `
 
-const Footer = ({ isLoading, power, brightness, hue, saturation, kelvin, commandResult, toggleLoading }) => {
+const Footer = ({
+  isLoading,
+  power,
+  brightness,
+  hue,
+  saturation,
+  kelvin,
+  commandResult,
+  toggleLoading
+}) => {
   const handleClick = async () => {
     toggleLoading()
     const result = await toggleLight()
@@ -73,13 +82,13 @@ const Footer = ({ isLoading, power, brightness, hue, saturation, kelvin, command
           color={ power ? '#ffffff' : color.darkGrey }
           onClick={ handleClick }
         />
-        <Brightness>
+        <BrightnessWrapper>
           { 
             brightness
-              ? <P>{brightness}</P>
+              ? <P>{ !power ? 'OFF' : brightness }</P>
               : <StyledBarsLoader />
           }
-        </Brightness>
+        </BrightnessWrapper>
       </ContentWrapper>
     </Wrapper>
   )
