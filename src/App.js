@@ -12,7 +12,7 @@ import Status from './components/Status'
 
 // Helpers
 import { getLightStatus } from './api'
-import { media, colors } from './helpers'
+import { media, color } from './helpers'
 
 // Styled components global styling
 const GlobalStyle = createGlobalStyle`
@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    background-color: ${colors.darkGrey};
+    background-color: ${color.darkGrey};
     font-family: 'Poppins', sans-serif;
   }
 `
@@ -35,9 +35,9 @@ const GlobalStyle = createGlobalStyle`
 // Grommet theme
 const theme = {
   select: {
-    background: colors.grommetPurple,
+    background: color.grommetPurple,
     icons: {
-      color: colors.white
+      color: color.white
     }
   }
 }

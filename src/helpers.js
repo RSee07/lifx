@@ -19,7 +19,7 @@ export const media = Object.keys(breakpoints).reduce((media, breakpoint) => {
   return media
 }, {})
 
-export const colors = {
+export const color = {
   black: '#000000',
   white: '#FFFFFF',
   darkGrey: '#202020',
