@@ -13,7 +13,7 @@ export const getLightStatus = async () => {
 
   return {
     power: power === 'on' ? true : false,
-    brightness,
+    brightness: Math.round(brightness*100),
     hue,
     saturation,
     kelvin
@@ -24,10 +24,12 @@ export const toggleLight = async () => {
   const response = await axios.post(TOGGLE_URL, null, { headers: HEADERS })
 
   return response.data.results[0].status
+
+  // status = "ok", "timed out "
 }
 
 export const turnLightOffTimed = async (time) => {
-  axios.put(
+  const response = await axios.put(
     SET_STATE_URL,
     {
       power: 'off',
@@ -36,6 +38,8 @@ export const turnLightOffTimed = async (time) => {
     },
     { headers: HEADERS }
   )
+
+  return response.data.results[0].status
 }
 
 export const breatheLight = async () => {
