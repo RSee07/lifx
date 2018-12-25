@@ -90,6 +90,7 @@ const App = () => {
   
   const commandResult = (result) => {
     if (result === 'ok') updateLightStatus()
+    alert('ok')
   }
   
   const toggleLoading = () => {
@@ -110,7 +111,7 @@ const App = () => {
       <GlobalStyle /> {/* Handles global styles */}
       <CommandContainer>
         <ToggleCard commandResult={commandResult} toggleLoading={toggleLoading} />
-        <TimerCard />
+        <TimerCard commandResult={commandResult} toggleLoading={toggleLoading} />
         <BrightnessCard brightness={lightStatus.brightness} />
         <WhiteContainer>
           <div>Power: {lightStatus.power ? 'On' : 'Off'}</div>

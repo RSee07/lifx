@@ -13,8 +13,15 @@ const times = {
   '30 minutes': 1800,
 }
 
-const TimerCard = () => {
+const TimerCard = ({ commandResult, toggleLoading }) => {
   const [value, setValue] = useState('')
+
+  const handleLightChange = async (option) => {
+    setValue(option)
+    toggleLoading()
+    const result = await turnLightOffTimed(times[option])
+    commandResult(result)
+  }
 
   return (
     <CommandCard>
@@ -22,12 +29,9 @@ const TimerCard = () => {
         id='lightSelect'
         name='lightSelect'
         placeholder='Timer'
-        value={value}
-        options={Object.keys(times)}
-        onChange={({ option }) => {
-          setValue(option)
-          turnLightOffTimed(times[option])
-        }}
+        value={ value }
+        options={ Object.keys(times) }
+        onChange={ ({ option }) => { handleLightChange(option) } }
       />
     </CommandCard>
   )

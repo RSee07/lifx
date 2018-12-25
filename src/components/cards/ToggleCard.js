@@ -15,7 +15,7 @@ const ToggleCard = ({ commandResult, toggleLoading }) => {
       <Button
         primary
         label='Toggle'
-        onClick={handleClick}
+        onClick={ handleClick }
       />
     </CommandCard>
   )
