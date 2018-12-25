@@ -2,31 +2,40 @@ import React from 'react'
 import styled from 'styled-components'
 import { Button } from 'grommet'
 import { Info } from 'grommet-icons'
+import { P } from './Text'
 import { toggleLight } from '../api'
-import { colors } from '../helpers'
-import { ReactComponent as Loader } from '../media/grid.svg'
+import { color } from '../helpers'
+import { ReactComponent as GridLoader } from '../media/grid.svg'
+import { ReactComponent as BarsLoader } from '../media/bars.svg'
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 150px;
+  height: 170px;
   padding: 10px;
-  background: ${colors.lightGrey};
+  background: ${color.lightGrey};
   position: fixed;
   bottom: 0;
   box-shadow: 0px -6px 10px 0px rgba(0,0,0,0.75);
+  color: ${color.white};
 `
 
-const StyledLoader = styled(Loader)`
+const StyledGridLoader = styled(GridLoader)`
   width: 30px;
   height: 30px;
   position: absolute;
   right: 10px;
 `
 
+const StyledBarsLoader = styled(BarsLoader)`
+  width: 20px;
+  height: 20px;
+`
+
 const ContentWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 `
@@ -43,6 +52,10 @@ const PowerButton = styled(Button)`
   }
 `
 
+const Brightness = styled.div`
+  padding-top: 10px;
+`
+
 const Footer = ({ isLoading, power, brightness, hue, saturation, kelvin, commandResult, toggleLoading }) => {
   const handleClick = async () => {
     toggleLoading()
@@ -52,14 +65,21 @@ const Footer = ({ isLoading, power, brightness, hue, saturation, kelvin, command
 
   return (
     <Wrapper>
-      { isLoading && <StyledLoader/> }
+      { isLoading && <StyledGridLoader /> }
       <ContentWrapper>
         <PowerButton
-          icon={<Info />}
+          icon={ <Info /> }
           primary
-          color={power ? '#ffffff' : colors.darkGrey }
-          onClick={handleClick}
+          color={ power ? '#ffffff' : color.darkGrey }
+          onClick={ handleClick }
         />
+        <Brightness>
+          { 
+            brightness
+              ? <P>{brightness}</P>
+              : <StyledBarsLoader />
+          }
+        </Brightness>
       </ContentWrapper>
     </Wrapper>
   )
