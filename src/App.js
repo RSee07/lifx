@@ -8,6 +8,7 @@ import { Grommet } from 'grommet'
 import ToggleCard from './components/cards/ToggleCard'
 import TimerCard from './components/cards/TimerCard'
 import BrightnessCard from './components/cards/BrightnessCard'
+import Toast from './components/Toast'
 import Status from './components/Status'
 
 // Helpers
@@ -64,22 +65,6 @@ const WhiteContainer = styled.div`
   color: white;
 `
 
-const rotate = keyframes`
-  from {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-`
-
-const Rotate = styled.div`
-  animation: ${rotate} 3s linear forwards;
-`
-
 const App = () => {
   // Define the lightStatus object state
   const [lightStatus, setLightStatus] = useState({})
@@ -105,7 +90,6 @@ const App = () => {
     // After the light status has been set, set loading to false
     setIsLoading(false)
   }
-  
   
   const commandResult = (result) => {
     if (result === 'ok') updateLightStatus()
@@ -138,9 +122,9 @@ const App = () => {
           <div>Hue: {lightStatus.hue}</div>
           <div>Saturation: {lightStatus.saturation}</div>
           <div>Kelvin: {lightStatus.kelvin}</div>
-          { !isLoading && message && <Rotate>{message}</Rotate> }
         </WhiteContainer>
       </CommandContainer>
+      { message && <Toast /> }
       <Status
         isLoading={isLoading}
         {...lightStatus}
