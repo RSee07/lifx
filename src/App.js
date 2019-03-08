@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    background-color: ${color.darkGrey};
+    background-color: ${color.black};
     font-family: 'Poppins', sans-serif;
   }
 `

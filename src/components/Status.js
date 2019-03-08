@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 170px;
   padding: 10px;
-  background: ${color.lightGrey};
+  background: ${color.darkGrey};
   position: fixed;
   bottom: 0;
   box-shadow: 0px -6px 10px 0px rgba(0,0,0,0.75);

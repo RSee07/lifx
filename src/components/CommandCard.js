@@ -5,9 +5,9 @@ import { color } from '../helpers'
 const Wrapper = styled.div`
   width: 100%;
   padding: 25px;
-  background-color: ${color.lightGrey};
+  background-color: ${color.darkGrey};
   border-radius: 5px;
-  box-shadow: 4px 6px 9px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px 3px 12px 0px rgba(105,105,105,0.75);
   display: flex;
   align-items: center;
   justify-content: center;
