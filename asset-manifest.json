@@ -1,13 +1,13 @@
 {
-  "main.js": "/lifx/static/js/main.e218dbfb.chunk.js",
-  "main.js.map": "/lifx/static/js/main.e218dbfb.chunk.js.map",
-  "static/js/1.bd9787b5.chunk.js": "/lifx/static/js/1.bd9787b5.chunk.js",
-  "static/js/1.bd9787b5.chunk.js.map": "/lifx/static/js/1.bd9787b5.chunk.js.map",
+  "main.js": "/lifx/static/js/main.73d8cf78.chunk.js",
+  "main.js.map": "/lifx/static/js/main.73d8cf78.chunk.js.map",
+  "static/js/1.6db74bcc.chunk.js": "/lifx/static/js/1.6db74bcc.chunk.js",
+  "static/js/1.6db74bcc.chunk.js.map": "/lifx/static/js/1.6db74bcc.chunk.js.map",
   "runtime~main.js": "/lifx/static/js/runtime~main.aabb73a0.js",
   "runtime~main.js.map": "/lifx/static/js/runtime~main.aabb73a0.js.map",
   "static/media/grid.272baf8c.svg": "/lifx/static/media/grid.272baf8c.svg",
   "static/media/bars.ca49bba4.svg": "/lifx/static/media/bars.ca49bba4.svg",
   "index.html": "/lifx/index.html",
-  "precache-manifest.3f214d897fc67569d2e0eb8b7216df78.js": "/lifx/precache-manifest.3f214d897fc67569d2e0eb8b7216df78.js",
+  "precache-manifest.3283d450555eb3247d2044e4148f47a5.js": "/lifx/precache-manifest.3283d450555eb3247d2044e4148f47a5.js",
   "service-worker.js": "/lifx/service-worker.js"
 }
