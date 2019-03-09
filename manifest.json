@@ -2,6 +2,7 @@
   "short_name": "Light",
   "name": "Richard's Light",
   "description": "App to control LIFX light",
+  ​​"orientation": "portrait",
   "icons": [
     {
       "src": "Icon-App-60x60@3x.png",
