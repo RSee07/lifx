@@ -43,6 +43,9 @@ const ContentWrapper = styled.div`
 const PowerButton = styled(Button)`
   width: 70px;
   height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 35px;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 
