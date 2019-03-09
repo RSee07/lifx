@@ -21,8 +21,11 @@ export const media = Object.keys(breakpoints).reduce((media, breakpoint) => {
 
 export const color = {
   black: '#000000',
+  blackBoxShadow: 'rgba(0,0,0,0.75)',
   white: '#FFFFFF',
+  grey: '#2D2D2D',
   darkGrey: '#202020',
   lightGrey: '#323232',
-  grommetPurple: '#7D4CDB'
+  grommetPurple: '#7D4CDB',
+  grommetPurpleBoxShadow: 'rgba(125,76,219,0.75)',
 }

@@ -12,10 +12,10 @@ const Wrapper = styled.div`
   width: 100%;
   height: 170px;
   padding: 10px;
-  background: ${color.darkGrey};
+  background: ${color.grey};
   position: fixed;
   bottom: 0;
-  box-shadow: 0px -6px 10px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px -6px 10px 0px ${color.blackBoxShadow};
   color: ${color.white};
 `
 
@@ -47,7 +47,7 @@ const PowerButton = styled(Button)`
   justify-content: center;
   align-items: center;
   border-radius: 35px;
-  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 10px 0px ${color.blackBoxShadow};
 
   svg {
     width: 35px;
@@ -82,7 +82,7 @@ const Footer = ({
         <PowerButton
           icon={ <Info /> }
           primary
-          color={ power ? '#ffffff' : color.darkGrey }
+          color={ power ? '#ffffff' : color.grey }
           onClick={ handleClick }
         />
         <BrightnessWrapper>
