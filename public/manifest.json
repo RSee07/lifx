@@ -1,10 +1,11 @@
 {
   "short_name": "Light",
   "name": "Richard's Light",
+  "description": "App to control LIFX light",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "src": "../src/media/Icon-App-60x60@3x.png",
+      "sizes": "16x16 24x24 32x32 64x64 72x72 96x96 128x128 256x256",
       "type": "image/x-icon"
     }
   ],
