@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/lifx/static/media/bars.ca49bba4.svg"
   },
   {
-    "revision": "a4026d31ca099a3ed64044676221a60b",
+    "revision": "7ddad7a592e31410c483e304f38b4f5a",
     "url": "/lifx/index.html"
   }
 ];
