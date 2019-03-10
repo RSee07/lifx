@@ -30,6 +30,9 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     background-color: ${color.black};
     font-family: 'Poppins', sans-serif;
+    user-select: none; /* Disable text selection to make more app like */
+    -webkit-tap-highlight-color: transparent; /* Remove highlight - webkit specific */
+    -webkit-touch-callout: none; /* Remove callout - webkit specific */
   }
 `
 
