@@ -4,8 +4,8 @@
   "description": "App to control LIFX light",
   "icons": [
     {
-      "src": "/images/homescreen/homescreen-circle.png",
-      "sizes": "16x16 24x24 32x32 64x64 72x72 96x96 128x128 256x256",
+      "src": "images/homescreen/homescreen-no-background.png",
+      "sizes": "16x16 24x24 32x32 64x64 72x72 96x96 128x128 256x256 512x512",
       "type": "image/png"
     }
   ],
