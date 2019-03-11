@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import { Select } from 'grommet'
 import CommandCard from '../CommandCard'
 import { turnLightOffTimed } from '../../api'
@@ -13,6 +14,15 @@ const times = {
   '30 minutes': 1800,
 }
 
+// TODO: Figure out how to use Grommet's theming
+const SelectContainer = styled.div`
+  * {
+    box-shadow: none;
+    border-color: transparent;
+    border-radius: 5px;
+  }
+`
+
 const TimerCard = ({ commandResult, toggleLoading }) => {
   const [value, setValue] = useState('')
 
@@ -25,14 +35,16 @@ const TimerCard = ({ commandResult, toggleLoading }) => {
 
   return (
     <CommandCard>
-      <Select
-        id='lightSelect'
-        name='lightSelect'
-        placeholder='Timer'
-        value={ value }
-        options={ Object.keys(times) }
-        onChange={ ({ option }) => { handleLightChange(option) } }
-      />
+      <SelectContainer>
+        <Select
+          id='lightSelect'
+          name='lightSelect'
+          placeholder='Timer'
+          value={ value }
+          options={ Object.keys(times) }
+          onChange={ ({ option }) => { handleLightChange(option) } }
+        />
+      </SelectContainer>
     </CommandCard>
   )
 }
