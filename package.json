@@ -5,7 +5,7 @@
   "homepage": "http://RSee07.github.io/lifx",
   "dependencies": {
     "axios": "^0.18.0",
-    "grommet": "^2.2.1",
+    "grommet": "^2.5.5",
     "grommet-icons": "^4.1.0",
     "prop-types": "^15.6.2",
     "react": "16.8.4",
