@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "af0110e94de4df185cc2",
-    "url": "/lifx/static/js/main.fae6e2b3.chunk.js"
+    "revision": "24a28234863cfd71b88c",
+    "url": "/lifx/static/js/main.05a55335.chunk.js"
   },
   {
     "revision": "d9dedd37806986574df4",
@@ -12,15 +12,15 @@ self.__precacheManifest = [
     "url": "/lifx/static/js/2.6161ec5e.chunk.js"
   },
   {
-    "revision": "272baf8c6b8a656e65ae24e7013edcd2",
-    "url": "/lifx/static/media/grid.272baf8c.svg"
-  },
-  {
     "revision": "ca49bba4ee5bc19ee6dc0545e112b3e8",
     "url": "/lifx/static/media/bars.ca49bba4.svg"
   },
   {
-    "revision": "d0e3c358cb08155cd883d59503501b0b",
+    "revision": "272baf8c6b8a656e65ae24e7013edcd2",
+    "url": "/lifx/static/media/grid.272baf8c.svg"
+  },
+  {
+    "revision": "44b07090009bb9acfdf7763d6b31f2e3",
     "url": "/lifx/index.html"
   }
 ];
