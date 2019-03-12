@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "24a28234863cfd71b88c",
-    "url": "/lifx/static/js/main.05a55335.chunk.js"
+    "revision": "90fd95708a39b576688d",
+    "url": "/lifx/static/js/main.750e1060.chunk.js"
   },
   {
     "revision": "d9dedd37806986574df4",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/lifx/static/media/grid.272baf8c.svg"
   },
   {
-    "revision": "44b07090009bb9acfdf7763d6b31f2e3",
+    "revision": "95734c237adfc73ddd5cb597562e9fe1",
     "url": "/lifx/index.html"
   }
 ];
