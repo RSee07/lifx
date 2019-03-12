@@ -1,12 +1,12 @@
 {
-  "main.js": "/lifx/static/js/main.750e1060.chunk.js",
-  "main.js.map": "/lifx/static/js/main.750e1060.chunk.js.map",
+  "main.js": "/lifx/static/js/main.8505ee10.chunk.js",
+  "main.js.map": "/lifx/static/js/main.8505ee10.chunk.js.map",
   "runtime~main.js": "/lifx/static/js/runtime~main.98791ea5.js",
   "runtime~main.js.map": "/lifx/static/js/runtime~main.98791ea5.js.map",
   "static/js/2.6161ec5e.chunk.js": "/lifx/static/js/2.6161ec5e.chunk.js",
   "static/js/2.6161ec5e.chunk.js.map": "/lifx/static/js/2.6161ec5e.chunk.js.map",
   "index.html": "/lifx/index.html",
-  "precache-manifest.e34578ac109a31d79b37a23b95c04166.js": "/lifx/precache-manifest.e34578ac109a31d79b37a23b95c04166.js",
+  "precache-manifest.9a0a8ced8ef46c89061cccca728c09ff.js": "/lifx/precache-manifest.9a0a8ced8ef46c89061cccca728c09ff.js",
   "service-worker.js": "/lifx/service-worker.js",
   "static/media/bars.ca49bba4.svg": "/lifx/static/media/bars.ca49bba4.svg",
   "static/media/grid.272baf8c.svg": "/lifx/static/media/grid.272baf8c.svg"
