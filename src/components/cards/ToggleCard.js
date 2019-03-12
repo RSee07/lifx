@@ -9,14 +9,10 @@ const ToggleCard = ({ commandResult, toggleLoading }) => {
     const result = await toggleLight()
     commandResult(result)
   }
-  
+
   return (
     <CommandCard>
-      <Button
-        primary
-        label='Toggle'
-        onClick={ handleClick }
-      />
+      <Button primary label='Toggle' onClick={handleClick} />
     </CommandCard>
   )
 }

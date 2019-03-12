@@ -5,16 +5,13 @@ import CommandCard from '../CommandCard'
 const BrightnessCard = ({ brightness }) => {
   const [value, setValue] = useState(brightness)
 
-  const onChange = (e) => {
+  const onChange = e => {
     setValue(e.target.value)
   }
 
   return (
     <CommandCard>
-      <RangeInput
-        value={value}
-        onChange={onChange}
-      />
+      <RangeInput value={value} onChange={onChange} />
     </CommandCard>
   )
 }

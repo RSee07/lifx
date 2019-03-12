@@ -16,13 +16,7 @@ const Number = styled.span`
 `
 
 const Percentage = ({ power, brightness }) => (
-  <Wrapper>
-    { 
-      brightness
-        ? <Number>{ !power ? 'OFF' : brightness }</Number>
-        : <BarsLoader />
-    }
-  </Wrapper>
+  <Wrapper>{brightness ? <Number>{!power ? 'OFF' : brightness}</Number> : <BarsLoader />}</Wrapper>
 )
 
 export default Percentage

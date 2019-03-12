@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
 // Libs
-import styled, { createGlobalStyle, keyframes } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { Grommet } from 'grommet'
 
 // Components
 import Percentage from './components/Percentage'
-import ToggleCard from './components/cards/ToggleCard'
 import TimerCard from './components/cards/TimerCard'
 import BrightnessCard from './components/cards/BrightnessCard'
 import Toast from './components/Toast'
@@ -28,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    padding: 0;
+     padding: 0;
     margin: 0;
     background-color: ${color.black};
     font-family: 'Poppins', sans-serif;
@@ -43,9 +42,9 @@ const theme = {
   select: {
     background: color.grommetPurple,
     icons: {
-      color: color.white
-    }
-  }
+      color: color.white,
+    },
+  },
 }
 
 const Body = styled.div`
@@ -70,10 +69,10 @@ const CommandContainer = styled.div`
   }
 `
 
-const WhiteContainer = styled.div`
-  color: white;
-  font-size: 2rem;
-`
+// const WhiteContainer = styled.div`
+//   color: white;
+//   font-size: 2rem;
+// `
 
 const App = () => {
   // Define the lightStatus object state
@@ -87,41 +86,40 @@ const App = () => {
     // Set the current light status
     const { power, brightness, hue, saturation, kelvin } = await getLightStatus()
 
-    setLightStatus(
-      {
-        power,
-        brightness,
-        hue,
-        saturation,
-        kelvin
-      }
-    )
+    setLightStatus({
+      power,
+      brightness,
+      hue,
+      saturation,
+      kelvin,
+    })
 
     // After the light status has been set, set loading to false
     setIsLoading(false)
   }
-  
-  const commandResult = (result) => {
+
+  const commandResult = result => {
     if (result === 'ok') updateLightStatus()
     setMessage('Command Successful')
   }
-  
+
   const toggleLoading = () => {
     setIsLoading(true)
   }
 
   /*
-  * When component mounts and for every render after, run useEffect
-  * Skip an effect if the effect returns nothing
-  * Continuously returns a promise if skipping effect array not added
-  */
+   * When component mounts and for every render after, run useEffect
+   * Skip an effect if the effect returns nothing
+   * Continuously returns a promise if skipping effect array not added
+   */
   useEffect(() => {
     updateLightStatus()
   }, []) // Empty array means effect will only run once
 
   return (
-    <Grommet theme={theme} >
-      <GlobalStyle /> {/* Handles global styles */}
+    <Grommet theme={theme}>
+      {/* GlobalStyle handles global styles */}
+      <GlobalStyle />
       <Body>
         <Percentage power={lightStatus.power} brightness={lightStatus.brightness} />
         <CommandContainer>
@@ -137,13 +135,8 @@ const App = () => {
           </WhiteContainer> */}
         </CommandContainer>
       </Body>
-      { message && <Toast /> }
-      <Status
-        isLoading={isLoading}
-        {...lightStatus}
-        commandResult={commandResult}
-        toggleLoading={toggleLoading}
-      />
+      {message && <Toast />}
+      <Status isLoading={isLoading} {...lightStatus} commandResult={commandResult} toggleLoading={toggleLoading} />
     </Grommet>
   )
 }

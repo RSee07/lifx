@@ -1,20 +1,19 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import CommandCard from './CommandCard'
-import { color } from '../helpers';
+import { color } from '../helpers'
 
+// const rotate = keyframes`
+//   from {
+//     opacity: 1;
+//     visibility: visible;
+//   }
 
-const rotate = keyframes`
-  from {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-`
+//   to {
+//     opacity: 0;
+//     visibility: hidden;
+//   }
+// `
 
 const slideUp = keyframes`
   from {

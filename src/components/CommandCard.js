@@ -13,12 +13,8 @@ const Wrapper = styled.div`
   justify-content: center;
 `
 
-const CommandCard = (props) => {
-  return (
-    <Wrapper>
-      {props.children}
-    </Wrapper>
-  )
+const CommandCard = props => {
+  return <Wrapper>{props.children}</Wrapper>
 }
 
 export default CommandCard

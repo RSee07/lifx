@@ -9,5 +9,5 @@ export const BREATHE_URL = 'https://api.lifx.com/v1/lights/all/effects/breathe' 
 
 // Headers required to access endpoints
 export const HEADERS = {
-  Authorization: `Bearer ${API_TOKEN}`
+  Authorization: `Bearer ${API_TOKEN}`,
 }

@@ -1,7 +1,7 @@
 /*
  * Breakpoints
  * Mobile first so mobile breakpoint not required
- * 
+ *
  * Mobile: 0px - 599px
  * Tablet: 600px - 899px
  * Desktop: 900px - 1199px

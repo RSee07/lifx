@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Button } from 'grommet'
 import { Info } from 'grommet-icons'
-import { P } from './Text'
 import { toggleLight } from '../api'
 import { color } from '../helpers'
 import { ReactComponent as GridLoader } from '../media/grid.svg'
@@ -49,16 +48,7 @@ const PowerButton = styled(Button)`
   }
 `
 
-const Footer = ({
-  isLoading,
-  power,
-  brightness,
-  hue,
-  saturation,
-  kelvin,
-  commandResult,
-  toggleLoading
-}) => {
+const Footer = ({ isLoading, power, brightness, hue, saturation, kelvin, commandResult, toggleLoading }) => {
   const handleClick = async () => {
     toggleLoading()
     const result = await toggleLight()
@@ -67,14 +57,9 @@ const Footer = ({
 
   return (
     <Wrapper>
-      { isLoading && <StyledGridLoader /> }
+      {isLoading && <StyledGridLoader />}
       <ContentWrapper>
-        <PowerButton
-          icon={ <Info /> }
-          primary
-          color={ power ? '#ffffff' : color.grey }
-          onClick={ handleClick }
-        />
+        <PowerButton icon={<Info />} primary color={power ? '#ffffff' : color.grey} onClick={handleClick} />
       </ContentWrapper>
     </Wrapper>
   )

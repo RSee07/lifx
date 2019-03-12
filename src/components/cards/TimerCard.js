@@ -26,7 +26,7 @@ const SelectContainer = styled.div`
 const TimerCard = ({ commandResult, toggleLoading }) => {
   const [value, setValue] = useState('')
 
-  const handleLightChange = async (option) => {
+  const handleLightChange = async option => {
     setValue(option)
     toggleLoading()
     const result = await turnLightOffTimed(times[option])
@@ -40,9 +40,11 @@ const TimerCard = ({ commandResult, toggleLoading }) => {
           id='lightSelect'
           name='lightSelect'
           placeholder='Timer'
-          value={ value }
-          options={ Object.keys(times) }
-          onChange={ ({ option }) => { handleLightChange(option) } }
+          value={value}
+          options={Object.keys(times)}
+          onChange={({ option }) => {
+            handleLightChange(option)
+          }}
         />
       </SelectContainer>
     </CommandCard>
