@@ -6,12 +6,11 @@ import { P } from './Text'
 import { toggleLight } from '../api'
 import { color } from '../helpers'
 import { ReactComponent as GridLoader } from '../media/grid.svg'
-import { ReactComponent as BarsLoader } from '../media/bars.svg'
 
 const Wrapper = styled.div`
   width: 100%;
   height: 140px;
-  padding: 10px;
+  padding: 10px 10px 20px;
   background: ${color.grey};
   position: fixed;
   bottom: 0;
