@@ -17,15 +17,17 @@ https://appsco.pe/developer/splash-screens
 ### iOS Homescreen icon tag
 
 ```html
-<link rel="apple-touch-icon" href="%PUBLIC_URL%/images/homescreen/homescreen-background.png">
+<link rel="apple-touch-icon" href="%PUBLIC_URL%/images/homescreen/homescreen-background.png" />
 ```
 
 ### Splash screen example
 
 ```html
-<link href="%PUBLIC_URL%/images/splashscreens/iphonexsmax_splash.png"
+<link
+  href="%PUBLIC_URL%/images/splashscreens/iphonexsmax_splash.png"
   media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)"
-  rel="apple-touch-startup-image" />
+  rel="apple-touch-startup-image"
+/>
 ```
 
 ### Useful Links
@@ -42,3 +44,21 @@ You **MUST** add this tag before declaring the splash screens or it will not wor
 ```html
 <meta name="apple-mobile-web-app-capable" content="yes" />
 ```
+
+## Linting
+
+To install:
+
+```
+  yarn add --dev eslint
+```
+
+Then follow instructions
+
+Configured using **Eslint** and **Prettier**. Separate `.eslintrc` and `.prettierrc` config files have been made.
+
+Additional dev dependencies are required to get Eslint running. View `package.json` for more details.
+
+**Lint-staged** is used to lint when staging code. View `package.json` for configuration details.
+
+**Stylelint** is used for css styling. Styled-component specific packages have been installed to make everything work together nicely. A `stylelintrc` config file has also been created
