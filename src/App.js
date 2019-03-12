@@ -5,6 +5,7 @@ import styled, { createGlobalStyle, keyframes } from 'styled-components'
 import { Grommet } from 'grommet'
 
 // Components
+import Percentage from './components/Percentage'
 import ToggleCard from './components/cards/ToggleCard'
 import TimerCard from './components/cards/TimerCard'
 import BrightnessCard from './components/cards/BrightnessCard'
@@ -19,6 +20,7 @@ import { media, color } from './helpers'
 const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
+    font-size: 10px;
   }
 
   *, *:before, *:after {
@@ -46,8 +48,12 @@ const theme = {
   }
 }
 
+const Body = styled.div`
+  height: calc(100vh - 140px);
+`
+
 const CommandContainer = styled.div`
-  margin: 15px;
+  padding: 0 15px 15px;
   display: grid;
   grid-template-columns: auto; /* Specify one column */
   grid-row-gap: 15px;
@@ -66,6 +72,7 @@ const CommandContainer = styled.div`
 
 const WhiteContainer = styled.div`
   color: white;
+  font-size: 2rem;
 `
 
 const App = () => {
@@ -115,18 +122,21 @@ const App = () => {
   return (
     <Grommet theme={theme} >
       <GlobalStyle /> {/* Handles global styles */}
-      <CommandContainer>
-        <ToggleCard commandResult={commandResult} toggleLoading={toggleLoading} />
-        <TimerCard commandResult={commandResult} toggleLoading={toggleLoading} />
-        <BrightnessCard brightness={lightStatus.brightness} />
-        <WhiteContainer>
-          <div>Power: {lightStatus.power ? 'On' : 'Off'}</div>
-          <div>Brightness: {lightStatus.brightness}%</div>
-          <div>Hue: {lightStatus.hue}</div>
-          <div>Saturation: {lightStatus.saturation}</div>
-          <div>Kelvin: {lightStatus.kelvin}</div>
-        </WhiteContainer>
-      </CommandContainer>
+      <Body>
+        <Percentage power={lightStatus.power} brightness={lightStatus.brightness} />
+        <CommandContainer>
+          {/* <ToggleCard commandResult={commandResult} toggleLoading={toggleLoading} /> */}
+          <TimerCard commandResult={commandResult} toggleLoading={toggleLoading} />
+          <BrightnessCard brightness={lightStatus.brightness} />
+          {/* <WhiteContainer>
+            <div>Power: {lightStatus.power ? 'On' : 'Off'}</div>
+            <div>Brightness: {lightStatus.brightness}%</div>
+            <div>Hue: {lightStatus.hue}</div>
+            <div>Saturation: {lightStatus.saturation}</div>
+            <div>Kelvin: {lightStatus.kelvin}</div>
+          </WhiteContainer> */}
+        </CommandContainer>
+      </Body>
       { message && <Toast /> }
       <Status
         isLoading={isLoading}

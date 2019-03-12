@@ -10,7 +10,7 @@ import { ReactComponent as BarsLoader } from '../media/bars.svg'
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 170px;
+  height: 140px;
   padding: 10px;
   background: ${color.grey};
   position: fixed;
@@ -24,11 +24,6 @@ const StyledGridLoader = styled(GridLoader)`
   height: 30px;
   position: absolute;
   right: 10px;
-`
-
-const StyledBarsLoader = styled(BarsLoader)`
-  width: 20px;
-  height: 20px;
 `
 
 const ContentWrapper = styled.div`
@@ -53,10 +48,6 @@ const PowerButton = styled(Button)`
     width: 35px;
     height: 35px;
   }
-`
-
-const BrightnessWrapper = styled.div`
-  padding-top: 10px;
 `
 
 const Footer = ({
@@ -85,13 +76,6 @@ const Footer = ({
           color={ power ? '#ffffff' : color.grey }
           onClick={ handleClick }
         />
-        <BrightnessWrapper>
-          { 
-            brightness
-              ? <P>{ !power ? 'OFF' : brightness }</P>
-              : <StyledBarsLoader />
-          }
-        </BrightnessWrapper>
       </ContentWrapper>
     </Wrapper>
   )
