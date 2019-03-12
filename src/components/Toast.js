@@ -46,7 +46,7 @@ const slideDown = keyframes`
 const Wrapper = styled.div`
   position: fixed;
   width: 100%;
-  bottom: 100px;
+  bottom: 70px;
   color: ${color.white};
   padding: 0 15px;
   animation: ${slideUp} 0.5s ease-in-out, ${stay} 2s 0.5s, ${slideDown} 0.5s 2.5s ease-in-out;
