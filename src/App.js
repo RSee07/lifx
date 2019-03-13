@@ -6,7 +6,6 @@ import { Grommet } from 'grommet'
 
 // Components
 import Percentage from './components/Percentage'
-import TimerCard from './components/cards/TimerCard'
 import BrightnessCard from './components/cards/BrightnessCard'
 import Toast from './components/Toast'
 import Status from './components/Status'
@@ -27,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-     padding: 0;
+    padding: 0;
     margin: 0;
     background-color: ${color.black};
     font-family: 'Poppins', sans-serif;
@@ -43,6 +42,11 @@ const theme = {
     background: color.grommetPurple,
     icons: {
       color: color.white,
+    },
+    control: {
+      extend: {
+        width: '100%',
+      },
     },
   },
 }
@@ -98,11 +102,13 @@ const App = () => {
     setIsLoading(false)
   }
 
+  // TODO: Switch to Redux and remove
   const commandResult = result => {
     if (result === 'ok') updateLightStatus()
     setMessage('Command Successful')
   }
 
+  // TODO: Switch to Redux and remove
   const toggleLoading = () => {
     setIsLoading(true)
   }
@@ -124,7 +130,6 @@ const App = () => {
         <Percentage power={lightStatus.power} brightness={lightStatus.brightness} />
         <CommandContainer>
           {/* <ToggleCard commandResult={commandResult} toggleLoading={toggleLoading} /> */}
-          <TimerCard commandResult={commandResult} toggleLoading={toggleLoading} />
           <BrightnessCard brightness={lightStatus.brightness} />
           {/* <WhiteContainer>
             <div>Power: {lightStatus.power ? 'On' : 'Off'}</div>

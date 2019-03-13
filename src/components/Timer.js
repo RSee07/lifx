@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Select } from 'grommet'
-import CommandCard from '../CommandCard'
-import { turnLightOffTimed } from '../../api'
+import { turnLightOffTimed } from '../api'
 
 // Time is in seconds
 const times = {
@@ -21,6 +20,9 @@ const SelectContainer = styled.div`
     border-color: transparent;
     border-radius: 5px;
   }
+
+  flex: 1; /* Grow and shrink according to remaining space in the flexbox */
+  padding-right: 20px;
 `
 
 const TimerCard = ({ commandResult, toggleLoading }) => {
@@ -34,20 +36,19 @@ const TimerCard = ({ commandResult, toggleLoading }) => {
   }
 
   return (
-    <CommandCard>
-      <SelectContainer>
-        <Select
-          id='lightSelect'
-          name='lightSelect'
-          placeholder='Timer'
-          value={value}
-          options={Object.keys(times)}
-          onChange={({ option }) => {
-            handleLightChange(option)
-          }}
-        />
-      </SelectContainer>
-    </CommandCard>
+    <SelectContainer>
+      <Select
+        id='lightSelect'
+        name='lightSelect'
+        placeholder='Timer'
+        value={value}
+        options={Object.keys(times)}
+        onChange={({ option }) => {
+          handleLightChange(option)
+        }}
+        dropAlign={{ bottom: 'top' }} // Make the dropdown open from the top
+      />
+    </SelectContainer>
   )
 }
 

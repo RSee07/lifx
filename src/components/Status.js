@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Button } from 'grommet'
 import { Info } from 'grommet-icons'
+import Timer from './Timer'
 import { toggleLight } from '../api'
 import { color } from '../helpers'
 import { ReactComponent as GridLoader } from '../media/grid.svg'
@@ -9,7 +10,7 @@ import { ReactComponent as GridLoader } from '../media/grid.svg'
 const Wrapper = styled.div`
   width: 100%;
   height: 140px;
-  padding: 10px 10px 20px;
+  padding: 10px 20px 20px;
   background: ${color.grey};
   position: fixed;
   bottom: 0;
@@ -21,14 +22,14 @@ const StyledGridLoader = styled(GridLoader)`
   width: 30px;
   height: 30px;
   position: absolute;
-  right: 10px;
+  left: 10px;
 `
 
 const ContentWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 `
@@ -59,6 +60,7 @@ const Footer = ({ isLoading, power, brightness, hue, saturation, kelvin, command
     <Wrapper>
       {isLoading && <StyledGridLoader />}
       <ContentWrapper>
+        <Timer commandResult={commandResult} toggleLoading={toggleLoading} />
         <PowerButton icon={<Info />} primary color={power ? '#ffffff' : color.grey} onClick={handleClick} />
       </ContentWrapper>
     </Wrapper>
