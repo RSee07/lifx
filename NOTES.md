@@ -62,3 +62,12 @@ Additional dev dependencies are required to get Eslint running. View `package.js
 **Lint-staged** is used to lint when staging code. View `package.json` for configuration details.
 
 **Stylelint** is used for css styling. Styled-component specific packages have been installed to make everything work together nicely. A `stylelintrc` config file has also been created
+
+## Things to use in the future
+
+### Use PWACompat
+
+Use **PWACompat** to dynamically add splashscreens for iOS
+
+- https://github.com/GoogleChromeLabs/pwacompat
+- https://developers.google.com/web/updates/2018/07/pwacompat
