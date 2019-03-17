@@ -8,12 +8,12 @@ import { FormUp } from 'grommet-icons'
 // Components
 import Percentage from './components/Percentage'
 import BrightnessCard from './components/cards/BrightnessCard'
-import Toast from './components/Toast'
+// import Toast from './components/Toast'
 import Status from './components/Status'
 
 // Helpers
 import { getLightStatus } from './api'
-import { media, color } from './helpers'
+import { color } from './helpers'
 
 // Constants
 import { HEADER_HEIGHT, FOOTER_HEIGHT } from './constants'
@@ -94,7 +94,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   // Temporary
-  const [message, setMessage] = useState('')
+  // const [message, setMessage] = useState('')
 
   const updateLightStatus = async () => {
     // Set the current light status
@@ -115,7 +115,7 @@ const App = () => {
   // TODO: Switch to Redux and remove
   const commandResult = result => {
     if (result === 'ok') updateLightStatus()
-    setMessage('Command Successful')
+    // setMessage('Command Successful')
   }
 
   // TODO: Switch to Redux and remove
