@@ -62,12 +62,23 @@ const ContentContainer = styled.div`
 
 // Hold all commands
 const CommandContainer = styled.div`
-  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 15px 25px;
   position: relative;
   top: ${HEADER_HEIGHT};
   height: calc(100% - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT});
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+
+  /* For all children */
+  & > * {
+    /* No margin on the last child element */
+    &:last-child {
+      margin: 0;
+    }
+  }
 `
 
 // const WhiteContainer = styled.div`
