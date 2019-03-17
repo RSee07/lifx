@@ -5,6 +5,7 @@ import { color } from '../helpers'
 const Wrapper = styled.div`
   width: 100%;
   padding: 25px;
+  margin-bottom: 15px;
   background-color: ${color.grey};
   border-radius: 5px;
   box-shadow: 2px 3px 12px 0px ${color.grommetPurpleBoxShadow};

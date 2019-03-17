@@ -11,3 +11,6 @@ export const BREATHE_URL = 'https://api.lifx.com/v1/lights/all/effects/breathe' 
 export const HEADERS = {
   Authorization: `Bearer ${API_TOKEN}`,
 }
+
+export const HEADER_HEIGHT = '30vh'
+export const FOOTER_HEIGHT = '140px'

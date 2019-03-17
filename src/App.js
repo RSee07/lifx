@@ -14,7 +14,10 @@ import Status from './components/Status'
 import { getLightStatus } from './api'
 import { media, color } from './helpers'
 
-// Styled components global styling
+// Constants
+import { HEADER_HEIGHT, FOOTER_HEIGHT } from './constants'
+
+// Styled components global stylins
 const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
@@ -51,26 +54,20 @@ const theme = {
   },
 }
 
-const Body = styled.div`
-  height: calc(100vh - 140px);
+// Hold all content displayed in a flexbox
+const ContentContainer = styled.div`
+  height: 100vh;
+  overflow: hidden;
 `
 
+// Hold all commands
 const CommandContainer = styled.div`
-  padding: 0 15px 15px;
-  display: grid;
-  grid-template-columns: auto; /* Specify one column */
-  grid-row-gap: 15px;
-
-  ${media.tablet} {
-    grid-template-columns: auto auto; /* Specify two columns */
-    grid-column-gap: 20px;
-  }
-
-  ${media.desktop} {
-    margin: 0 auto;
-    width: 400px;
-    grid-template-columns: auto auto auto; /* Specify three columns */
-  }
+  padding: 0 15px;
+  position: relative;
+  top: ${HEADER_HEIGHT};
+  height: calc(100% - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT});
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 `
 
 // const WhiteContainer = styled.div`
@@ -126,7 +123,7 @@ const App = () => {
     <Grommet theme={theme}>
       {/* GlobalStyle handles global styles */}
       <GlobalStyle />
-      <Body>
+      <ContentContainer>
         <Percentage power={lightStatus.power} brightness={lightStatus.brightness} />
         <CommandContainer>
           {/* <ToggleCard commandResult={commandResult} toggleLoading={toggleLoading} /> */}
@@ -139,9 +136,10 @@ const App = () => {
             <div>Kelvin: {lightStatus.kelvin}</div>
           </WhiteContainer> */}
         </CommandContainer>
-      </Body>
-      {message && <Toast />}
-      <Status isLoading={isLoading} {...lightStatus} commandResult={commandResult} toggleLoading={toggleLoading} />
+
+        {/* {message && <Toast />} */}
+        <Status isLoading={isLoading} {...lightStatus} commandResult={commandResult} toggleLoading={toggleLoading} />
+      </ContentContainer>
     </Grommet>
   )
 }

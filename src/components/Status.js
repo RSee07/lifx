@@ -5,11 +5,12 @@ import { Info } from 'grommet-icons'
 import Timer from './Timer'
 import { toggleLight } from '../api'
 import { color } from '../helpers'
+import { FOOTER_HEIGHT } from '../constants'
 import { ReactComponent as GridLoader } from '../media/grid.svg'
 
 const Wrapper = styled.div`
   width: 100%;
-  height: 140px;
+  height: ${FOOTER_HEIGHT};
   padding: 10px 20px 20px;
   background: ${color.grey};
   position: fixed;
