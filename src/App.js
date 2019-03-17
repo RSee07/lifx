@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 // Libs
 import styled, { createGlobalStyle } from 'styled-components'
 import { Grommet } from 'grommet'
+import { FormUp } from 'grommet-icons'
 
 // Components
 import Percentage from './components/Percentage'
@@ -45,6 +46,7 @@ const theme = {
     background: color.grommetPurple,
     icons: {
       color: color.white,
+      down: FormUp,
     },
     control: {
       extend: {
