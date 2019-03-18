@@ -14,9 +14,9 @@ const breakpoints = {
 }
 
 // Create an object containing all breakpoints
-export const media = Object.keys(breakpoints).reduce((media, breakpoint) => {
-  media[breakpoint] = `@media (min-width: ${breakpoints[breakpoint]})`
-  return media
+export const media = Object.keys(breakpoints).reduce((acc, breakpoint) => {
+  acc[breakpoint] = `@media (min-width: ${breakpoints[breakpoint]})`
+  return acc
 }, {})
 
 export const color = {
