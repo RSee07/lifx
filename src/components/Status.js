@@ -1,4 +1,5 @@
 import React from 'react'
+import { bool, func } from 'prop-types'
 import styled from 'styled-components'
 import { Button } from 'grommet'
 import { Info } from 'grommet-icons'
@@ -7,6 +8,21 @@ import { toggleLight } from '../api'
 import { color } from '../helpers'
 import { FOOTER_HEIGHT } from '../constants'
 import { ReactComponent as GridLoader } from '../media/grid.svg'
+
+const propTypes = {
+  isLoading: bool.isRequired,
+  power: bool,
+  // brightness: number,
+  // hue: number,
+  // saturation: number,
+  // kelvin: number,
+  commandResult: func.isRequired,
+  toggleLoading: func.isRequired,
+}
+
+const defaultProps = {
+  power: false,
+}
 
 const Wrapper = styled.div`
   width: 100%;
@@ -49,8 +65,8 @@ const PowerButton = styled(Button)`
     height: 35px;
   }
 `
-
-const Footer = ({ isLoading, power, brightness, hue, saturation, kelvin, commandResult, toggleLoading }) => {
+// TODO: Potentially add these in the future: brightness, hue, saturation, kelvin
+const Status = ({ isLoading, power, commandResult, toggleLoading }) => {
   const handleClick = async () => {
     toggleLoading()
     const result = await toggleLight()
@@ -68,4 +84,6 @@ const Footer = ({ isLoading, power, brightness, hue, saturation, kelvin, command
   )
 }
 
-export default Footer
+Status.propTypes = propTypes
+Status.defaultProps = defaultProps
+export default Status

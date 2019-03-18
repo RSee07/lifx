@@ -1,7 +1,13 @@
 import React from 'react'
+import { func } from 'prop-types'
 import { Button } from 'grommet'
 import CommandCard from '../CommandCard'
 import { toggleLight } from '../../api'
+
+const propTypes = {
+  commandResult: func.isRequired,
+  toggleLoading: func.isRequired,
+}
 
 const ToggleCard = ({ commandResult, toggleLoading }) => {
   const handleClick = async () => {
@@ -17,4 +23,5 @@ const ToggleCard = ({ commandResult, toggleLoading }) => {
   )
 }
 
+ToggleCard.propTypes = propTypes
 export default ToggleCard

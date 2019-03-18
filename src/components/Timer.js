@@ -1,7 +1,13 @@
 import React, { useState } from 'react'
+import { func } from 'prop-types'
 import styled from 'styled-components'
 import { Select } from 'grommet'
 import { turnLightOffTimed } from '../api'
+
+const propTypes = {
+  commandResult: func.isRequired,
+  toggleLoading: func.isRequired,
+}
 
 // Time is in seconds
 const times = {
@@ -52,4 +58,5 @@ const TimerCard = ({ commandResult, toggleLoading }) => {
   )
 }
 
+TimerCard.propTypes = propTypes
 export default TimerCard

@@ -1,6 +1,11 @@
 import React from 'react'
+import { node } from 'prop-types'
 import styled from 'styled-components'
 import { color } from '../helpers'
+
+const propTypes = {
+  children: node.isRequired,
+}
 
 const Wrapper = styled.div`
   width: 100%;
@@ -15,8 +20,9 @@ const Wrapper = styled.div`
   justify-content: center;
 `
 
-const CommandCard = props => {
-  return <Wrapper>{props.children}</Wrapper>
+const CommandCard = ({ children }) => {
+  return <Wrapper>{children}</Wrapper>
 }
 
+CommandCard.propTypes = propTypes
 export default CommandCard
